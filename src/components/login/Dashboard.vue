@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .outside-wrapper {
   height: 100vh;
   display: grid;
@@ -62,9 +62,10 @@ export default {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 }
-.btn-custom--alt {
+.btn.btn-custom.btn-custom--alt {
   color: $altColor;
   background: $white;
+  font-weight: 600;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   display: inline-block;
   width: auto;

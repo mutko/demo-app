@@ -12,7 +12,7 @@
             >Sed ut erspiciatios unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</p>
 
             <router-link
-              to="/dashboard"
+              to="/signin"
               tag="button"
               class="btn btn-custom-sign text-uppercase"
             >Let's start</router-link>

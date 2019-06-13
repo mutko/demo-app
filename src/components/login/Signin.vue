@@ -3,7 +3,7 @@
     <main class="main-content">
       <div class="inside-wrapper text-center px-3 px-sm-0">
         <h1>DEMO</h1>
-        <form @submit.prevent="onSubmit" class="sign-form">
+        <form @submit.prevent="logIn" class="sign-form">
           <div class="form-group">
             <input
               v-model="email"
@@ -38,6 +38,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import router from "../../router";
+
 export default {
   data() {
     return {
@@ -46,13 +49,23 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      const formData = {
+    logIn() {
+      const logData = {
         email: this.email,
         password: this.password
       };
-      console.log(formData);
-      this.$store.dispatch("logIn", formData);
+      console.log(logData);
+      axios
+        .post("/auth/login", logData)
+        .then(res => {
+          console.log(res);
+          localStorage.setItem("token", res.data.access_token);
+          localStorage.setItem("expirationDate", res.data.expires_at);
+          // router.replace("/dashboard");
+        })
+        .catch(e => {
+          alert("You have entered an invalid username or password");
+        });
     }
   }
 };

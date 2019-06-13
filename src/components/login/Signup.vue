@@ -4,7 +4,7 @@
       <div class="inside-wrapper text-center px-3 px-sm-0">
         <h1>DEMO</h1>
 
-        <form @submit.prevent="onSubmit" class="sign-form">
+        <form @submit.prevent="registerUser" class="sign-form">
           <div class="form-group">
             <input
               v-model="name"
@@ -47,6 +47,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import router from "../../router";
+
 export default {
   data() {
     return {
@@ -57,15 +60,29 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      const formData = {
+    registerUser() {
+      const userData = {
         name: this.name,
         email: this.email,
         password: this.password,
         password_confirmation: this.confirm
       };
-      console.log(formData);
-      this.$store.dispatch("signUp", formData);
+      console.log(userData);
+      axios
+        .post("/auth/signup", userData)
+        .then(res => {
+          console.log(res);
+          alert("User uccessfully created!");
+          router.replace("/welcome");
+        })
+        .catch(e => {
+          console.log(e.response);
+          if (e.response.status === 422) {
+            alert("The email has already been taken.");
+          } else {
+            alert("Not valid data. Try again.");
+          }
+        });
     }
   }
 };
