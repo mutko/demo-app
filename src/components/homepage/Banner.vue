@@ -108,6 +108,7 @@
     width: 175px;
     &:hover {
       color: $altColor;
+      text-decoration: none;
     }
     .media {
       align-items: center;

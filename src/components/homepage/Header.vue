@@ -30,11 +30,7 @@
 
 
 <style lang="scss" scoped>
-.navbar {
-  a {
-    color: white;
-  }
-}
+.navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link {
   color: white;
   &:hover {
