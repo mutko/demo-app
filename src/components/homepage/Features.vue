@@ -50,31 +50,59 @@
           <div class="features__bg">
             <img src="../../assets/empty-phone.png" alt="Mobile phone" class="features__bg--img">
 
-            <div
-              id="featuresCarousel"
-              class="carousel slide carousel-fade"
-              data-ride="carousel"
-              data-interval="6000"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="../../assets/ss1.png" alt="App screenshot 1">
-                </div>
-                <div class="carousel-item">
-                  <img src="../../assets/ss2.png" alt="App screenshot 2">
-                </div>
-                <div class="carousel-item">
-                  <img src="../../assets/ss3.png" alt="App screenshot 3">
-                </div>
-                <div class="carousel-item">
-                  <img src="../../assets/ss4.png" alt="App screenshot 4">
-                </div>
-                <div class="carousel-item">
-                  <img src="../../assets/ss5.png" alt="App screenshot 5">
-                </div>
-              </div>
+            <div>
+              <b-carousel
+                id="carousel-1"
+                v-model="slide"
+                fade
+                :interval="6000"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
+              >
+
+                <b-carousel-slide>
+                  <img
+                    slot="img"
+                    src="../../assets/ss1.png"
+                    alt="image slot"
+                  >
+                </b-carousel-slide>
+                    <b-carousel-slide>
+                  <img
+                    slot="img"
+                    src="../../assets/ss2.png"
+                    alt="image slot"
+                  >
+                </b-carousel-slide>
+
+                <b-carousel-slide>
+                  <img
+                    slot="img"
+                    src="../../assets/ss3.png"
+                    alt="image slot"
+                  >
+                </b-carousel-slide>
+
+                <b-carousel-slide>
+                  <img
+                    slot="img"
+                    src="../../assets/ss4.png"
+                    alt="image slot"
+                  >
+                </b-carousel-slide>
+
+                <b-carousel-slide>
+                  <img
+                    slot="img"
+                    src="../../assets/ss5.png"
+                    alt="image slot"
+                  >
+                </b-carousel-slide>
+
+              </b-carousel>
+
             </div>
-            <!-- END Carousel -->
+
           </div>
         </div>
       </div>
@@ -83,6 +111,25 @@
     <!-- END Container -->
   </section>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        slide: 0,
+        sliding: null
+      }
+    },
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
 .features {
