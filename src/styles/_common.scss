@@ -1,0 +1,42 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+body {
+  font-family: $mainFont;
+  color: $textColor;
+  height: 100%;
+}
+
+.section-title {
+  color: #000;
+  text-transform: capitalize;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.section-lead {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.btn-custom {
+  background: $white;
+  color: $mainColor;
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  &:hover {
+    color: $altColor;
+  }
+}
+.btn-custom--small {
+  padding-right: 3rem;
+  padding-left: 3rem;
+  border: 1px solid $mainColor;
+}
+.media-img {
+  margin-right: 2rem;
+  padding: 20px;
+}
+.map {
+  height: 400px;
+}
