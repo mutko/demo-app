@@ -2,7 +2,100 @@
   <section id="clients" class="py-5 clients">
     <div class="container">
       <p class="h2 text-uppercase text-center">Some talk of our clients</p>
+
       <div class="clients-carousel">
+
+
+        <carousel :autoplay="true" :dots="false" :responsive="{ 0: { items:1 }, 768: { items:2 } }">
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+        <div class="tns-item">
+          <article class="clients__review">
+            <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
+            <div class="clients__title">
+              <p class="mb-1 text-center">Oliver Gomez</p>
+              <p>CEO of Google</p>
+            </div>
+            <p
+              class="text-left"
+            >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good.</p>
+          </article>
+        </div>
+      <div class="text-center pt-5 controls">
+        <template slot="prev">
+          <span class="fa-stack fa-2x arrow arrow--left">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-long-arrow-alt-left fa-stack-1x"></i>
+          </span>
+        </template>
+        <template slot="next">
+          <span class="fa-stack fa-2x arrow arrow--right">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-long-arrow-alt-right fa-stack-1x"></i>
+          </span>
+        </template>
+      </div>
+    </carousel>
+
+
         <div class="tns-item">
           <article class="clients__review">
             <img src="../../assets/client1.png" alt="User photo" width="100" class="clients__img">
@@ -68,6 +161,16 @@
     <!-- END Container -->
   </section>
 </template>
+
+<script>
+import carousel from 'vue-owl-carousel'
+
+export default {
+  components: { 
+    carousel
+  }
+}
+</script>
 
 <style lang="scss">
 .clients {
