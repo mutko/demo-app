@@ -113,7 +113,7 @@
     box-shadow: none;
   }
 }
-.btn-contact {
+.btn.btn-contact {
   background: $altColor;
   color: $white;
   border-radius: 0;

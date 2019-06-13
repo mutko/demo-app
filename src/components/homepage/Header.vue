@@ -9,7 +9,7 @@
             <i class="fas fa-bars fa-lg"></i>
           </b-navbar-toggle>
 
-          <button class="btn btn-custom order-lg-3">Login or Register</button>
+          <router-link to="/signin" tag="button" class="btn btn-custom order-lg-3">Login or Register</router-link>
 
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="mx-auto">
@@ -30,6 +30,9 @@
 
 
 <style lang="scss" scoped>
+.navbar {
+  padding: 0;
+}
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link {
   color: white;
