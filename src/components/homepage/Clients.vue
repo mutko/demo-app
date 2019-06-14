@@ -83,7 +83,7 @@ export default {
 }
 .clients__review {
   border: 1px solid $white;
-  padding: 3rem 4rem 1rem;
+  padding: 4rem 4rem 1rem;
   text-align: center;
   position: relative;
 }
@@ -106,5 +106,25 @@ export default {
   .owl-carousel .owl-item img {
     width: auto;
   }
+
 }
+.owl-theme .owl-nav [class*="owl-"] {
+  text-indent: -99999px;
+  border-radius: 50%;
+  &::after {
+    content: "\f30b";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    text-indent: 0;
+    float: left;
+  }
+}
+
+.owl-theme .owl-nav [class*="owl-prev"]::after {
+  content: "\f30a";
+}
+
 </style>
