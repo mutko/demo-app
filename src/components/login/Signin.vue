@@ -56,12 +56,15 @@ export default {
       };
       console.log(logData);
       axios
-        .post("/auth/login", logData)
+        .post(
+          "https://cors-anywhere.herokuapp.com/http://comtrade.sytes.net/api/auth/login",
+          logData
+        )
         .then(res => {
           console.log(res);
           localStorage.setItem("token", res.data.access_token);
           localStorage.setItem("expirationDate", res.data.expires_at);
-          // router.replace("/dashboard");
+          router.replace("/dashboard");
         })
         .catch(e => {
           alert("You have entered an invalid username or password");

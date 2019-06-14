@@ -69,7 +69,10 @@ export default {
       };
       console.log(userData);
       axios
-        .post("/auth/signup", userData)
+        .post(
+          "https://cors-anywhere.herokuapp.com/http://comtrade.sytes.net/api/auth/signup",
+          userData
+        )
         .then(res => {
           console.log(res);
           alert("User uccessfully created!");

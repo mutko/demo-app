@@ -4,7 +4,7 @@
       <router-link to="/" tag="h1">Demo</router-link>
     </div>
     <div class="logout d-flex justify-content-end align-items-center pr-5">
-      <button @click="onLogout" class="btn btn-custom btn-custom--alt">Logout</button>
+      <button @click="logout" class="btn btn-custom btn-custom--alt">Logout</button>
     </div>
     <div class="color"></div>
     <router-view/>
@@ -12,11 +12,14 @@
 </template>
 
 <script>
+import router from "../../router";
+
 export default {
   name: "Dashboard",
   methods: {
-    onLogout() {
-      this.$store.dispatch("logout");
+    logout() {
+      localStorage.clear();
+      router.replace("/signin");
     }
   }
 };
