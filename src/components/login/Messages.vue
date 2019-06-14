@@ -43,21 +43,14 @@
                     class="form-control"
                     required
                   >
-                  <input
-                    v-model="message.body"
-                    type="text"
-                    name="message"
-                    placeholder="Message"
-                    class="form-control"
-                    required
-                  >
+                  <textarea v-model="message.body" cols="40" rows="10" required></textarea>
                 </div>
                 <b-button
                   type="submit"
                   class="mt-3"
                   block
                   @click="$bvModal.hide('modal-update')"
-                >Update user</b-button>
+                >Update message</b-button>
               </form>
             </b-modal>
           </tbody>
