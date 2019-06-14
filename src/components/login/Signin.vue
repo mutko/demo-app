@@ -6,7 +6,8 @@
         <form @submit.prevent="logIn" class="sign-form">
           <div class="form-group">
             <input
-              v-model="email"
+              v-model.trim="email"
+              @input="$v.email.$touch()"
               type="email"
               name="email"
               placeholder="Email"
@@ -14,8 +15,18 @@
               class="form-control"
               required
             >
+            <div v-if="$v.email.$dirty">
+              <p class="error-message" v-if="!$v.email.email">
+                Please enter valid email address
+              </p>
+              <p class="error-message" v-if="!$v.email.required">
+                Email is required
+              </p>
+            </div>
+
             <input
-              v-model="password"
+              v-model.trim="password"
+              @input="$v.password.$touch()"
               type="password"
               name="password"
               placeholder="Password"
@@ -23,6 +34,14 @@
               class="form-control"
               required
             >
+            <div v-if="$v.password.$dirty">
+              <p class="error-message" v-if="!$v.password.minLength">
+                Password must be minimum 6 characters
+              </p>
+              <p class="error-message" v-if="!$v.password.required">
+                Password is required
+              </p>
+            </div>
           </div>
           <button type="submit" class="btn btn-custom-sign">Sign in</button>
         </form>
@@ -40,6 +59,7 @@
 <script>
 import axios from "axios";
 import router from "../../router";
+import { required, email, minLength } from "vuelidate/lib/validators";
 
 export default {
   data() {
@@ -47,6 +67,16 @@ export default {
       email: "",
       password: ""
     };
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    }
   },
   methods: {
     logIn() {
