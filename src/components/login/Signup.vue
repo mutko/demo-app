@@ -1,8 +1,5 @@
 <template>
   <div class="bg-wrapper">
-    <div class="validators">
-  <pre>{{$v}}</pre>
-</div>
     <main class="main-content">
       <div class="inside-wrapper text-center px-3 px-sm-0">
         <h1>DEMO</h1>
