@@ -6,40 +6,45 @@
 
 <script>
 (function renderMap() {
-  L.mapquest.key = "l26kacdUcAitMfeOUAnveXYhv1dFlUGp";
-  var baseLayer = L.mapquest.tileLayer("light");
+  if (typeof L !== "undefined") {
+    L.mapquest.key = "wRqiliOj84blrkNdpJ7Yqpos6RHIOYFS";
 
-  L.mapquest.geocoding().geocode(["Belgrade, BG"], showMap);
+    var baseLayer = L.mapquest.tileLayer("light");
 
-  function showMap(err, data) {
-    var map = createMap();
-    map.addControl(L.mapquest.control());
-    addLayerControl(map);
-  }
+    L.mapquest.geocoding().geocode(["Belgrade, BG"], showMap);
 
-  function createMap() {
-    var map = L.mapquest.map("map", {
-      center: [44.787197, 20.457273],
-      zoom: 14,
-      layers: baseLayer
-    });
-    return map;
-  }
+    function showMap(err, data) {
+      var map = createMap();
+      map.addControl(L.mapquest.control());
+      addLayerControl(map);
+    }
 
-  function addLayerControl(map) {
-    L.control
-      .layers(
-        {
-          Map: L.mapquest.tileLayer("map"),
-          Satellite: L.mapquest.tileLayer("satellite"),
-          Hybrid: L.mapquest.tileLayer("hybrid"),
-          Light: L.mapquest.tileLayer("light"),
-          Dark: baseLayer
-        },
-        {},
-        { position: "topleft" }
-      )
-      .addTo(map);
+    function createMap() {
+      var map = L.mapquest.map("map", {
+        center: [44.787197, 20.457273],
+        zoom: 14,
+        layers: baseLayer
+      });
+      return map;
+    }
+
+    function addLayerControl(map) {
+      L.control
+        .layers(
+          {
+            Map: L.mapquest.tileLayer("map"),
+            Satellite: L.mapquest.tileLayer("satellite"),
+            Hybrid: L.mapquest.tileLayer("hybrid"),
+            Light: L.mapquest.tileLayer("light"),
+            Dark: baseLayer
+          },
+          {},
+          { position: "topleft" }
+        )
+        .addTo(map);
+    }
+  } else {
+    console.log("MapQuest CDN not online!");
   }
 })();
 </script>
